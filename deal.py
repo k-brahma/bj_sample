@@ -18,7 +18,7 @@ card_list = create_card_list()
 # ディーラーが最初に有する2枚のカードを決定する
 dealer_default_card_list = get_default_dealer_cards(card_list)
 
-# 結果が確定するまでディーラーがカードに引かせ、引いたカードのリストと最終スコアを決める
+# 結果が確定するまでディーラーにカードを引かせ、引いたカードのリストと最終スコアを決める
 dealer_card_list, dealer_score = set_dealer_final_card_list(dealer_default_card_list, card_list)
 
 # ディーラーのカードのリストを出力する
