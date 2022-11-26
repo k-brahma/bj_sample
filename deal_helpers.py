@@ -49,7 +49,6 @@ def set_dealer_final_card_list(dealer_card_list, card_list):
     """
 
     # while 文内での処理用の初期値
-    ace_count = 0  # list.filter で while 文内で算出するほうが良いですが、まずはこんな感じで。
     total_score = dealer_card_list[0].score + dealer_card_list[1].score  # A を常に11点とみなしたときの総得点
     dealer_score = total_score  # ディーラーのスコアとみなすべき値。最終的に戻り値になる。
 
@@ -58,8 +57,7 @@ def set_dealer_final_card_list(dealer_card_list, card_list):
         dealer_card_list.append(card)
         card_list.remove(card)
 
-        if card.is_ace:
-            ace_count += 1
+        ace_count = len(list(filter(lambda x: x.is_ace, dealer_card_list)))  # A の枚数
 
         total_score += card.score
         dealer_score = get_dealer_current_score(total_score, ace_count)
